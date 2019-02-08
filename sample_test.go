@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-// Benchmark{Compute,Copy}{1000,1000000} demonstrate that, even for relatively
+// BenchmarkCompute1000 demonstrates that, even for relatively
 // expensive computations like Variance, the cost of copying the Sample, as
 // approximated by a make and copy, is much greater than the cost of the
 // computation for small samples and only slightly less for large samples.
@@ -144,7 +144,7 @@ func TestExpDecaySample1000(t *testing.T) {
 	}
 }
 
-// This test makes sure that the sample's priority is not amplified by using
+// TestExpDecaySampleNanosecondRegression checks a case when makes sure that the sample's priority is not amplified by using
 // nanosecond duration since start rather than second duration since start.
 // The priority becomes +Inf quickly after starting if this is done,
 // effectively freezing the set of samples until a rescale step happens.

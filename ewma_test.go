@@ -28,7 +28,7 @@ func BenchmarkEWMAParallel(b *testing.B) {
 	})
 }
 
-// exercise race detector
+// TestEWMAConcurrency checks a case when exercise race detector
 func TestEWMAConcurrency(t *testing.T) {
 	rand.Seed(time.Now().Unix())
 	a := NewEWMA1()

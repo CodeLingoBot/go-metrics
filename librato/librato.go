@@ -13,7 +13,7 @@ import (
 // a regexp for extracting the unit from time.Duration.String
 var unitRegexp = regexp.MustCompile("[^\\d]+$")
 
-// a helper that turns a time.Duration into librato display attributes for timer metrics
+// translateTimerAttributes; a helper that turns a time.Duration into librato display attributes for timer metrics
 func translateTimerAttributes(d time.Duration) (attrs map[string]interface{}) {
 	attrs = make(map[string]interface{})
 	attrs[DisplayTransform] = fmt.Sprintf("x/%d", int64(d))
@@ -58,7 +58,7 @@ func (self *Reporter) Run() {
 	}
 }
 
-// calculate sum of squares from data provided by metrics.Histogram
+// sumSquares; calculate sum of squares from data provided by metrics.Histogram
 // see http://en.wikipedia.org/wiki/Standard_deviation#Rapid_calculation_methods
 func sumSquares(s metrics.Sample) float64 {
 	count := float64(s.Count())

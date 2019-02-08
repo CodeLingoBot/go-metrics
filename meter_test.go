@@ -25,7 +25,7 @@ func BenchmarkMeterParallel(b *testing.B) {
 	})
 }
 
-// exercise race detector
+// TestMeterConcurrency checks a case when exercise race detector
 func TestMeterConcurrency(t *testing.T) {
 	rand.Seed(time.Now().Unix())
 	ma := meterArbiter{

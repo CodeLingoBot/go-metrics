@@ -16,7 +16,7 @@ func BenchmarkGuage(b *testing.B) {
 	}
 }
 
-// exercise race detector
+// TestGaugeConcurrency checks a case when exercise race detector
 func TestGaugeConcurrency(t *testing.T) {
 	rand.Seed(time.Now().Unix())
 	g := NewGauge()
